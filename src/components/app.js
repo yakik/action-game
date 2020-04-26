@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 
 
-export function Start() {
+export function App() {
   const [gameState, setGameState] = useState({ seconds:0, score: 0, playerLocation: { row: 4, col: 5 } });
 
   
@@ -19,7 +19,7 @@ export function Start() {
     return () => clearInterval(interval);
   }, []);
 
-  const handlekeydown = (event) => {
+  const handleKeydown = (event) => {
     event.preventDefault()
     let newGameState = { ...gameState }
     if (event.key === 'i') {
@@ -54,7 +54,7 @@ export function Start() {
   return (
     <div>
       <p>{"Score: " + gameState.score + " Time: " + gameState.seconds + " seconds"} </p>
-      <div className="grid-container" tabIndex="0" onKeyDown={handlekeydown}>
+      <div className="grid-container" tabIndex="0" onKeyDown={handleKeydown}>
         {a}
       </div>
     </div>
